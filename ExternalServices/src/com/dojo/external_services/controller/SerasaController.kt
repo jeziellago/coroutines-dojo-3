@@ -12,7 +12,8 @@ fun serasa(route: Route) {
     route.post("/score") {
         val post = call.receive<SerasaUser>()
         val score: Int = Random.nextInt(0, 1000)
-        delay(Random.nextLong(100,300))
+//        delay(Random.nextLong(100,300))
+        delay(300)
         call.respond(mapOf("score" to score))
     }
 }

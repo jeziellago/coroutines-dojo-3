@@ -2,14 +2,18 @@ package services.identity
 
 import domain.entities.IdentityScore
 import domain.repository.IdentityValidatorRepository
-import kotlinx.coroutines.delay
 import java.math.BigDecimal
-import kotlin.random.Random
 
-class IdentityValidatorRepositoryImpl : IdentityValidatorRepository {
+class IdentityValidatorRepositoryImpl(
+        private val identityValidatorService: IdentityValidatorService
+) : IdentityValidatorRepository {
 
-    override suspend fun getScore(rgImg: String, profileImg: String): IdentityScore {
-        delay(300L)
-        return IdentityScore(value = BigDecimal.valueOf(Random.nextDouble()))
+    override suspend fun getScore(
+        name: String,
+        rgImg: String,
+        profileImg: String
+    ): IdentityScore {
+        val score = identityValidatorService.getScore(name, rgImg, profileImg).score
+        return IdentityScore(value = BigDecimal(score))
     }
 }

@@ -1,7 +1,7 @@
 package domain.entities
 
 data class Account(
-    val username: String,
+    val name: String,
     val cpf: CPF,
     val rgImg: String,
     val profileImg: String

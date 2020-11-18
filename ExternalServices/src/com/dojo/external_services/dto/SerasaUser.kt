@@ -5,8 +5,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class SerasaUser(
-    @SerialName("first_name") val firstName: String,
-    @SerialName("last_name") val lastName: String,
-    @SerialName("cpf") val documentCpf: String,
-    @SerialName("birth_date") val birthDate: String,
+    @SerialName("name") val name: String,
+    @SerialName("cpf") val documentCpf: String
 )

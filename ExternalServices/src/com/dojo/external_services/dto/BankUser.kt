@@ -9,6 +9,4 @@ data class BankUser(
     @SerialName("last_name") val lastName: String,
     @SerialName("birth_date") val birthDate: String,
     @SerialName("document") val document: Document
-) {
-
-}
+)

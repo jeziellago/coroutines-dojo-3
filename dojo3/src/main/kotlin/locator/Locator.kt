@@ -2,6 +2,12 @@ package locator
 
 import kotlin.reflect.KClass
 
+
+inline fun <reified T: Any> get() = Locator.get(T::class)
+inline fun <reified T: Any> inject() = lazy { get<T>() }
+inline fun <reified T: Any> provides(noinline instance: () -> T) =
+    Locator.put(T::class, instance)
+
 object Locator : ServiceLocator {
 
     private val definitions = mutableMapOf<KClass<*>, () -> Any>()
