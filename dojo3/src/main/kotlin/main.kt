@@ -21,6 +21,7 @@ fun main() {
     val elapsedTime = runBlocking {
         measureTime {
             val result = validateAccountUseCase(
+                this,
                 serasaRepository,
                 identityValidatorRepository,
                 fetchAccounts(10000) // 10.000 contas
